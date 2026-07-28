@@ -1,0 +1,9 @@
+node_modules/
+.npm-cache/
+dist/
+.astro/
+.vercel/
+.netlify/
+.env
+.env.*
+!.env.example

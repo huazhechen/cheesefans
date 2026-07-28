@@ -1,0 +1,661 @@
+---
+const apps = [
+  {
+    name: "魔方模拟器",
+    eyebrow: "Cube Simulator",
+    href: "https://cube.cheesefans.com",
+    description:
+      "面向观察、练习和理解魔方状态的在线工具。适合快速实验公式、记录思路，也适合把空间结构拆开来看。",
+    status: "cube.cheesefans.com",
+    accent: "cube",
+  },
+  {
+    name: "在线文本乐谱编辑器",
+    eyebrow: "Text Score Editor",
+    href: "https://score.cheesefans.com",
+    description:
+      "用文本组织旋律、节奏和结构，把乐谱编辑变成更轻、更直接、更容易版本管理的创作流程。",
+    status: "score.cheesefans.com",
+    accent: "score",
+  },
+];
+
+const values = [
+  "工具打开就应该能用，不把简单任务变成配置工程。",
+  "复杂系统可以被拆解、观察和复现，理解来自可操作的反馈。",
+  "知识不必板着脸，兴趣、严谨和一点幽默可以共存。",
+];
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="芝士分子 Cheesefans：个人门户、在线工具和知识作品入口。"
+    />
+    <meta property="og:title" content="芝士分子 Cheesefans" />
+    <meta
+      property="og:description"
+      content="一点知识，一点趣味，一些打开就能用的小工具。"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://cheesefans.com" />
+    <meta name="theme-color" content="#f5c84b" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>芝士分子 Cheesefans</title>
+  </head>
+  <body>
+    <main class="site-shell">
+      <header class="masthead">
+        <a class="brand" href="/" aria-label="芝士分子首页">
+          <span class="brand-mark">芝</span>
+          <span>
+            <strong>芝士分子</strong>
+            <small>Cheesefans</small>
+          </span>
+        </a>
+        <nav class="nav-links" aria-label="主导航">
+          <a href="#apps">Apps</a>
+          <a href="#about">About</a>
+          <a href="mailto:hello@cheesefans.com">Contact</a>
+        </nav>
+      </header>
+
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="kicker">Cheese + Fans + Knowledge</p>
+          <h1 id="hero-title">芝士分子</h1>
+          <p class="subtitle">
+            这里是 cheesefans.com 的个人门户：收纳我做的小工具、实验项目和以后可能写下来的知识作品。
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#apps">查看在线工具</a>
+            <a class="button secondary" href="#about">了解这个站点</a>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="魔方和文本乐谱工具预览">
+          <div class="preview cube-preview" aria-hidden="true">
+            <div class="cube-grid">
+              {
+                ["#f24e42", "#f5c84b", "#2f7df6", "#35a853", "#ffffff", "#f28b2e", "#2f7df6", "#f24e42", "#35a853"].map(
+                  (color) => <span style={`--tile: ${color}`} />,
+                )
+              }
+            </div>
+            <div class="preview-meta">
+              <span>R U R'</span>
+              <strong>Cube Lab</strong>
+            </div>
+          </div>
+
+          <div class="preview score-preview" aria-hidden="true">
+            <div class="score-lines">
+              <span>1=C 4/4</span>
+              <span>| 1 2 3 5 | 6 - 5 - |</span>
+              <span>| 3 2 1 - | 5 3 2 1 |</span>
+            </div>
+            <div class="staff">
+              <i></i><i></i><i></i><i></i><i></i>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="apps" class="section">
+        <div class="section-heading">
+          <p class="kicker">Apps</p>
+          <h2>在线工具</h2>
+          <p>
+            两个 app 会部署在独立二级域名上，一级域名保留为统一入口和后续作品索引。
+          </p>
+        </div>
+
+        <div class="app-grid">
+          {
+            apps.map((app) => (
+              <a class={`app-card ${app.accent}`} href={app.href}>
+                <span class="app-domain">{app.status}</span>
+                <p class="app-eyebrow">{app.eyebrow}</p>
+                <h3>{app.name}</h3>
+                <p>{app.description}</p>
+                <span class="app-link">打开应用</span>
+              </a>
+            ))
+          }
+        </div>
+      </section>
+
+      <section id="about" class="section about">
+        <div>
+          <p class="kicker">About</p>
+          <h2>为什么叫芝士分子</h2>
+        </div>
+        <div class="about-copy">
+          <p>
+            “芝士分子”取“知识分子”的谐音。它不是一个严肃机构名，更像一个个人实验室的门牌：把兴趣变成可用的工具，把复杂东西拆到能看懂。
+          </p>
+          <ul>
+            {values.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+      </section>
+
+      <section class="section roadmap" aria-labelledby="roadmap-title">
+        <p class="kicker">Next</p>
+        <h2 id="roadmap-title">后续可以扩展</h2>
+        <div class="roadmap-grid">
+          <article>
+            <h3>文章</h3>
+            <p>记录技术、音乐、魔方和产品思考。</p>
+          </article>
+          <article>
+            <h3>实验室</h3>
+            <p>展示还没完全成型、但值得公开试用的小项目。</p>
+          </article>
+          <article>
+            <h3>关于我</h3>
+            <p>等你准备好公开身份后，补充个人介绍和外部链接。</p>
+          </article>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span>© {new Date().getFullYear()} Cheesefans</span>
+        <a href="mailto:hello@cheesefans.com">hello@cheesefans.com</a>
+      </footer>
+    </main>
+  </body>
+</html>
+
+<style>
+  :global(*) {
+    box-sizing: border-box;
+  }
+
+  :global(html) {
+    scroll-behavior: smooth;
+  }
+
+  :global(body) {
+    margin: 0;
+    min-height: 100vh;
+    color: #221b12;
+    font-family:
+      Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+      sans-serif;
+    background:
+      linear-gradient(180deg, rgba(255, 247, 212, 0.96), rgba(255, 252, 239, 0.98) 46%),
+      #fff8df;
+  }
+
+  :global(a) {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .site-shell {
+    width: min(1120px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 22px 0 36px;
+  }
+
+  .masthead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    min-height: 72px;
+    border-bottom: 1px solid rgba(34, 27, 18, 0.12);
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .brand-mark {
+    display: grid;
+    width: 44px;
+    height: 44px;
+    place-items: center;
+    border-radius: 8px;
+    color: #2c210b;
+    font-weight: 900;
+    background: #f5c84b;
+    box-shadow: inset -8px -8px 0 rgba(82, 57, 0, 0.12);
+  }
+
+  .brand strong,
+  .brand small {
+    display: block;
+    line-height: 1.1;
+  }
+
+  .brand small {
+    margin-top: 3px;
+    color: rgba(34, 27, 18, 0.58);
+    font-size: 12px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 8px;
+    color: rgba(34, 27, 18, 0.7);
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .nav-links a {
+    padding: 10px 12px;
+    border-radius: 8px;
+  }
+
+  .nav-links a:hover {
+    background: rgba(245, 200, 75, 0.22);
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+    gap: 56px;
+    align-items: center;
+    min-height: calc(100vh - 94px);
+    padding: 64px 0 76px;
+  }
+
+  .kicker {
+    margin: 0 0 14px;
+    color: #806108;
+    font-size: 13px;
+    font-weight: 850;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+
+  h1,
+  h2,
+  h3,
+  p {
+    margin-top: 0;
+  }
+
+  h1 {
+    margin-bottom: 20px;
+    font-size: clamp(58px, 12vw, 132px);
+    line-height: 0.98;
+    letter-spacing: 0;
+  }
+
+  h2 {
+    margin-bottom: 16px;
+    font-size: clamp(34px, 5vw, 62px);
+    line-height: 1.05;
+    letter-spacing: 0;
+  }
+
+  h3 {
+    margin-bottom: 12px;
+    font-size: 25px;
+    line-height: 1.2;
+    letter-spacing: 0;
+  }
+
+  .subtitle {
+    max-width: 680px;
+    color: rgba(34, 27, 18, 0.72);
+    font-size: clamp(20px, 3vw, 29px);
+    line-height: 1.5;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 34px;
+  }
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 20px;
+    border-radius: 8px;
+    font-weight: 850;
+  }
+
+  .button.primary {
+    color: #fff6d1;
+    background: #221b12;
+  }
+
+  .button.secondary {
+    border: 1px solid rgba(34, 27, 18, 0.18);
+    background: #ffffff;
+  }
+
+  .hero-visual {
+    position: relative;
+    min-height: 520px;
+  }
+
+  .preview {
+    position: absolute;
+    border: 1px solid rgba(34, 27, 18, 0.12);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.82);
+    box-shadow: 0 24px 70px rgba(92, 69, 15, 0.14);
+  }
+
+  .cube-preview {
+    top: 0;
+    right: 0;
+    width: min(82%, 380px);
+    padding: 28px;
+  }
+
+  .cube-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    aspect-ratio: 1;
+    padding: 12px;
+    border-radius: 8px;
+    background: #1f2328;
+    transform: rotate(-6deg);
+  }
+
+  .cube-grid span {
+    border-radius: 6px;
+    background: var(--tile);
+    box-shadow: inset 0 -8px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .preview-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 24px;
+    color: rgba(34, 27, 18, 0.65);
+    font-weight: 800;
+  }
+
+  .preview-meta strong {
+    color: #221b12;
+  }
+
+  .score-preview {
+    right: 18%;
+    bottom: 22px;
+    width: min(78%, 420px);
+    padding: 24px;
+  }
+
+  .score-lines {
+    display: grid;
+    gap: 12px;
+    color: #2d332f;
+    font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  .staff {
+    display: grid;
+    gap: 10px;
+    margin-top: 26px;
+  }
+
+  .staff i {
+    display: block;
+    height: 2px;
+    background: rgba(34, 27, 18, 0.18);
+  }
+
+  .section {
+    padding: 74px 0;
+  }
+
+  .section-heading {
+    max-width: 720px;
+    margin-bottom: 30px;
+  }
+
+  .section-heading p,
+  .about-copy,
+  .roadmap p {
+    color: rgba(34, 27, 18, 0.72);
+    font-size: 18px;
+    line-height: 1.75;
+  }
+
+  .app-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .app-card {
+    position: relative;
+    min-height: 320px;
+    padding: 28px;
+    overflow: hidden;
+    border: 1px solid rgba(34, 27, 18, 0.12);
+    border-radius: 8px;
+    background: #fffdf4;
+    transition:
+      transform 180ms ease,
+      box-shadow 180ms ease;
+  }
+
+  .app-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 70px rgba(92, 69, 15, 0.12);
+  }
+
+  .app-card::after {
+    position: absolute;
+    right: -34px;
+    bottom: -40px;
+    width: 176px;
+    height: 176px;
+    content: "";
+    opacity: 0.16;
+  }
+
+  .app-card.cube::after {
+    border-radius: 8px;
+    background:
+      linear-gradient(90deg, transparent 31%, #221b12 31% 35%, transparent 35% 65%, #221b12 65% 69%, transparent 69%),
+      linear-gradient(0deg, transparent 31%, #221b12 31% 35%, transparent 35% 65%, #221b12 65% 69%, transparent 69%),
+      #f5c84b;
+  }
+
+  .app-card.score::after {
+    border-radius: 8px;
+    background:
+      linear-gradient(90deg, #221b12 2px, transparent 2px) 0 22px / 100% 24px repeat-y,
+      #86c7a4;
+  }
+
+  .app-domain {
+    display: inline-flex;
+    margin-bottom: 32px;
+    padding: 7px 10px;
+    border-radius: 8px;
+    color: #6d5308;
+    font-size: 13px;
+    font-weight: 850;
+    background: rgba(245, 200, 75, 0.24);
+  }
+
+  .app-eyebrow {
+    margin-bottom: 8px;
+    color: #806108;
+    font-weight: 850;
+  }
+
+  .app-card p:not(.app-eyebrow) {
+    max-width: 520px;
+    color: rgba(34, 27, 18, 0.68);
+    font-size: 17px;
+    line-height: 1.7;
+  }
+
+  .app-link {
+    position: absolute;
+    bottom: 28px;
+    left: 28px;
+    font-weight: 900;
+  }
+
+  .about {
+    display: grid;
+    grid-template-columns: 0.82fr 1.18fr;
+    gap: 52px;
+    align-items: start;
+  }
+
+  .about-copy ul {
+    display: grid;
+    gap: 12px;
+    padding: 0;
+    margin: 28px 0 0;
+    list-style: none;
+  }
+
+  .about-copy li {
+    padding: 16px 18px;
+    border-left: 4px solid #f5c84b;
+    background: rgba(255, 255, 255, 0.72);
+  }
+
+  .roadmap {
+    padding: 42px;
+    border-radius: 8px;
+    color: #fdf5d5;
+    background: #221b12;
+  }
+
+  .roadmap .kicker {
+    color: #f5c84b;
+  }
+
+  .roadmap-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 28px;
+  }
+
+  .roadmap article {
+    min-height: 150px;
+    padding: 22px;
+    border: 1px solid rgba(253, 245, 213, 0.14);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .roadmap h3 {
+    font-size: 22px;
+  }
+
+  .roadmap p {
+    margin: 0;
+    color: rgba(253, 245, 213, 0.72);
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 30px 4px 0;
+    color: rgba(34, 27, 18, 0.58);
+    font-size: 14px;
+  }
+
+  @media (max-width: 820px) {
+    .site-shell {
+      width: min(100% - 22px, 1120px);
+      padding-top: 10px;
+    }
+
+    .masthead {
+      min-height: 64px;
+    }
+
+    .nav-links {
+      display: none;
+    }
+
+    .hero,
+    .about,
+    .app-grid,
+    .roadmap-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero {
+      min-height: auto;
+      gap: 34px;
+      padding: 48px 0 52px;
+    }
+
+    .hero-visual {
+      min-height: 390px;
+    }
+
+    .cube-preview {
+      width: 78%;
+      padding: 20px;
+    }
+
+    .score-preview {
+      right: 0;
+      width: 86%;
+    }
+
+    .section {
+      padding: 48px 0;
+    }
+
+    .app-card {
+      min-height: 340px;
+      padding: 24px;
+    }
+
+    .app-link {
+      left: 24px;
+      bottom: 24px;
+    }
+
+    .roadmap {
+      padding: 28px;
+    }
+
+    .footer {
+      flex-direction: column;
+    }
+  }
+
+  @media (max-width: 430px) {
+    .hero-actions,
+    .button {
+      width: 100%;
+    }
+
+    .hero-visual {
+      min-height: 340px;
+    }
+
+    .score-lines {
+      font-size: 13px;
+    }
+  }
+</style>
