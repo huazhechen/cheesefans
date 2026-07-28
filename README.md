@@ -12,7 +12,7 @@
 ## 信息结构
 
 - `https://cheesefans.com`：个人门户首页。
-- `https://cube.cheesefans.com`：魔方模拟器。
+- `https://cuber.cheesefans.com`：魔方模拟器。
 - `https://score.cheesefans.com`：在线文本乐谱编辑器。
 
 首页当前包含：
@@ -58,5 +58,5 @@ npm run build
 
 两个 app 可以分别作为独立 Pages 项目或独立静态站部署，并绑定：
 
-- `cube.cheesefans.com`
+- `cuber.cheesefans.com`
 - `score.cheesefans.com`
