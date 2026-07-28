@@ -6,14 +6,18 @@
   "scripts": {
     "dev": "cross-env ASTRO_TELEMETRY_DISABLED=1 ASTRO_DEV_BACKGROUND=0 astro dev",
     "build": "cross-env ASTRO_TELEMETRY_DISABLED=1 astro check && cross-env ASTRO_TELEMETRY_DISABLED=1 astro build",
-    "preview": "cross-env ASTRO_TELEMETRY_DISABLED=1 astro preview"
+    "preview": "npm run build && wrangler dev",
+    "generate-types": "wrangler types",
+    "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.10",
+    "@astrojs/cloudflare": "^14.1.6",
     "astro": "^7.1.4",
     "typescript": "^5.9.2"
   },
   "devDependencies": {
-    "cross-env": "^10.1.0"
+    "cross-env": "^10.1.0",
+    "wrangler": "^4.114.0"
   }
 }
