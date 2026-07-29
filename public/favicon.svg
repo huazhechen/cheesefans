@@ -1,8 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="8" fill="#f5c84b"/>
-  <path d="M13 45 49 15l6 37H13Z" fill="#ffe680"/>
-  <circle cx="29" cy="37" r="5" fill="#8a6100" opacity=".35"/>
-  <circle cx="43" cy="31" r="4" fill="#8a6100" opacity=".35"/>
-  <circle cx="22" cy="46" r="3" fill="#8a6100" opacity=".35"/>
-  <text x="17" y="30" font-family="Arial, sans-serif" font-size="18" font-weight="900" fill="#2a1c00">芝</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <path fill="#fcea2b" d="M57 12c5.5 0 10 4.5 10 10v31c0 1.1-.9 2-2 2H7c-1.1 0-2-.9-2-2V22c0-1.1.9-2 2-2l13-2L57 12z"/>
+  <g fill="#f1b31c"><circle cx="16" cy="44" r="5"/><circle cx="56" cy="30" r="5"/><circle cx="49" cy="44" r="3"/><circle cx="40" cy="32" r="3"/><circle cx="32" cy="40" r="3"/><circle cx="21" cy="28" r="3"/></g>
+  <path fill="none" stroke="#221b0b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M67 22v31c0 1.1-.9 2-2 2H7c-1.1 0-2-.9-2-2V22c0-1.1.9-2 2-2l50-8c5.5 0 10 4.5 10 10z"/>
 </svg>
