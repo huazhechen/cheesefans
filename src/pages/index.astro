@@ -12,6 +12,21 @@ const apps = [
     href: "https://score.cheesefans.com",
     type: "score",
   },
+  {
+    name: "即将推出 01",
+    description: "新的工具正在开发中",
+    type: "coming-soon",
+  },
+  {
+    name: "即将推出 02",
+    description: "新的工具正在开发中",
+    type: "coming-soon",
+  },
+  {
+    name: "即将推出 03",
+    description: "新的工具正在开发中",
+    type: "coming-soon",
+  },
 ];
 ---
 
@@ -53,10 +68,20 @@ const apps = [
                   </div>
                 </div>
               </div>
-              <div class="preview">
-                <iframe src={app.href} title={`${app.name} 预览`} loading="lazy" tabindex="-1" />
-              </div>
-              <a class="preview-link" href={app.href} aria-label={`打开${app.name}`}><span>打开工具 <b aria-hidden="true">↗</b></span></a>
+              {
+                app.href ? (
+                  <>
+                    <div class="preview">
+                      <iframe src={app.href} title={`${app.name} 预览`} loading="lazy" tabindex="-1" />
+                    </div>
+                    <a class="preview-link" href={app.href} aria-label={`打开${app.name}`}><span>打开工具 <b aria-hidden="true">↗</b></span></a>
+                  </>
+                ) : (
+                  <div class="coming-soon-preview" aria-label="开发中">
+                    <span>开发中</span>
+                  </div>
+                )
+              }
             </article>
           ))
         }
@@ -78,7 +103,7 @@ const apps = [
     background: #fffaf0;
   }
 
-  main { width: min(1440px, calc(100% - 48px)); margin: 0 auto; padding: 22px 0 32px; }
+  main { width: min(1440px, 80%); margin: 0 auto; padding: 22px 0 32px; }
   header { display: flex; align-items: center; min-height: 58px; gap: 14px; }
   .brand { display: inline-flex; align-items: center; gap: 10px; color: #332b1d; font-size: 25px; font-weight: 800; letter-spacing: 0; text-decoration: none; }
   .brand-mark { display: grid; width: 43px; height: 43px; place-items: center; padding: 2px; border: 1px solid #e5bb4c; border-radius: 7px; background: #fff3c6; box-shadow: 2px 2px 0 #e7c55e; }
@@ -89,8 +114,8 @@ const apps = [
   .eyebrow { margin: 0 0 7px; color: #947947; font-size: 12px; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
   .intro h1 { max-width: 700px; margin: 0; color: #312817; font-size: clamp(30px, 4vw, 50px); line-height: 1.1; letter-spacing: 0; }
 
-  .apps { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); grid-auto-rows: min(72vh, 760px); gap: 18px; }
-  .app { position: relative; display: grid; grid-template-rows: 66px minmax(0, 1fr); overflow: hidden; border: 1px solid #e7d7b7; border-radius: 8px; background: #fff; box-shadow: 0 14px 30px rgba(103, 75, 20, .12); transition: transform 180ms ease, box-shadow 180ms ease; }
+  .apps { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); grid-auto-rows: auto; gap: 18px; }
+  .app { position: relative; display: grid; aspect-ratio: 3 / 4; grid-template-rows: 66px minmax(0, 1fr); overflow: hidden; border: 1px solid #e7d7b7; border-radius: 8px; background: #fff; box-shadow: 0 14px 30px rgba(103, 75, 20, .12); transition: transform 180ms ease, box-shadow 180ms ease; }
   .app:hover { transform: translateY(-3px); box-shadow: 0 20px 36px rgba(103, 75, 20, .17); }
   .app-bar { display: flex; align-items: center; gap: 16px; padding: 0 18px; color: #3a2c11; background: #ffdd69; border-bottom: 1px solid #e5ba41; }
   .app-title { display: flex; min-width: 0; align-items: center; gap: 11px; }
@@ -99,6 +124,7 @@ const apps = [
   .app h2 { font-size: 15px; font-weight: 800; letter-spacing: 0; }
   .app p { margin-top: 2px; color: rgba(58, 44, 17, .66); font-size: 12px; font-weight: 550; }
   .preview { position: relative; min-height: 0; background: #fff; }
+  .coming-soon-preview { display: grid; min-height: 0; place-items: center; color: #9b8150; background: repeating-linear-gradient(-45deg, #fffaf0 0 12px, #fff4da 12px 24px); font-size: 13px; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
   iframe { display: block; width: 100%; height: 100%; border: 0; background: #fff; pointer-events: none; }
   .preview-link { position: absolute; inset: 0; z-index: 1; display: grid; place-items: center; color: transparent; background: transparent; text-decoration: none; transition: background-color 150ms ease; }
   .preview-link span { padding: 10px 14px; border: 1px solid transparent; border-radius: 6px; color: transparent; background: transparent; font-size: 14px; font-weight: 750; transition: color 150ms ease, background-color 150ms ease, border-color 150ms ease; }
@@ -107,7 +133,7 @@ const apps = [
   .preview-link:hover span, .preview-link:focus-visible span { border-color: #f5cc52; color: #fffdf7; background: #302817; }
   .preview-link:focus-visible { outline: 3px solid #c48800; outline-offset: -3px; }
 
-  @media (orientation: portrait) { .apps { grid-template-columns: 1fr; grid-auto-rows: 72vh; } }
+  @media (orientation: portrait) { .apps { grid-template-columns: 1fr; } }
   @media (hover: none) { .preview-link { background: rgba(61, 45, 13, .42); }.preview-link span { border-color: #f5cc52; color: #fffdf7; background: #302817; } }
-  @media (max-width: 500px) { main { width: 100%; padding-top: 10px; }.brand { margin-left: 16px; font-size: 22px; }.brand-note { display: none; }.intro { margin: 33px 16px 21px; }.intro h1 { font-size: 31px; }.apps { grid-template-columns: 1fr; gap: 13px; grid-auto-rows: 74vh; }.app { border-radius: 6px; grid-template-rows: 60px minmax(0, 1fr); }.app-bar { padding: 0 14px; }.app h2 { font-size: 14px; } }
+  @media (max-width: 500px) { main { padding-top: 10px; }.brand { font-size: 22px; }.brand-note { display: none; }.intro { margin: 33px 0 21px; }.intro h1 { font-size: 31px; }.apps { grid-template-columns: 1fr; gap: 13px; grid-auto-rows: auto; }.app { border-radius: 6px; grid-template-rows: 60px minmax(0, 1fr); }.app-bar { padding: 0 14px; }.app h2 { font-size: 14px; } }
 </style>
